@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="d-flex justify-content-center mb-5">
+    <h1>List of Patient</h1>
+</div>
+<p th:text="${a}" ></p>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col"> patientId</th>
+        <th scope="col"> patientName</th>
+        <th scope="col"> isMalade</th>
+        <th scope="col"> Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="p: ${patients}">
+        <td  th:text="${p.patientId}"  ></td>
+        <td th:text="${p.patientName}"></td>
+        <td th:text="${p.ismalade}"></td>
+        <td> <a onclick="return confirm('vous sure')" class="btn btn-danger" th:href="@{/patient/delete(id=${p.patientId})} ">delete</a></td>
+        <td> <a class="btn btn-danger" th:href="@{/patient/delete/{id}(id=${p.patientId})} ">delete</a></td>
+        <td> <button type="button" id="4" class="btn btn-danger">Delete</button></td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item" th:each="p,status: ${pages}" >
+            <a class="page-link" th:text="${status.index}" th:href="@{/patient/homme(page=${status.index})}"></a>
+        </li>
+    </ul>
+</nav>
+</fieldset>
+
+<script>
+    const a=
+</script>
+</body>
+</html>
