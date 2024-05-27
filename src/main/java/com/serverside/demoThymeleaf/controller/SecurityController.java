@@ -98,12 +98,20 @@ public class SecurityController {
     @ResponseBody
     public String login(@RequestBody AuthReq authReq){
         System.out.println("d5al");
+        System.out.println("before ");
+//        System.out.println(SecurityContextHolder.getContext().getAuthentication());
+        UsernamePasswordAuthenticationToken authenticationToken= new UsernamePasswordAuthenticationToken(
+                authReq.getEmail(),authReq.getPassword());
+
+        System.out.println(authenticationToken.isAuthenticated());
         Authentication authentication=authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         authReq.getEmail(),authReq.getPassword())
         );
 
-        SecurityContextHolder.getContext().setAuthentication(authentication);
+
+SecurityContextHolder.getContext().setAuthentication(authentication);
+        System.out.println(SecurityContextHolder.getContext().getAuthentication());;
         return "login success";
     }
 

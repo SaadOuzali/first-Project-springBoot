@@ -14,6 +14,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.oauth2.server.resource.OAuth2ResourceServerConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -55,6 +56,7 @@ public class MySecurityConfig {
                     auth.requestMatchers("/patient/auth").hasAuthority("ADMIN");
                     auth.requestMatchers("/user/test").hasAuthority("ADMIN");
                     auth.requestMatchers("/user/test3").hasRole("ADMIN");
+
 //                    auth.requestMatchers(HttpMethod.GET,"/user/test3").hasRole("ADMIN");
                     auth.requestMatchers("/patient/delete/**").hasRole("ADMIN");
                     auth.requestMatchers("/patient/**","/h2-console/** ","/user/**").permitAll();
@@ -67,6 +69,7 @@ public class MySecurityConfig {
                 .cors(c->c.disable())
                 .csrf(csrf-> csrf.disable())
                 .headers(h->h.disable())
+//                .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .userDetailsService(customerDetailsService)
                 .addFilterBefore(filtre, UsernamePasswordAuthenticationFilter.class)
 

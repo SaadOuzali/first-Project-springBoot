@@ -106,7 +106,7 @@ public class PatientController {
 
     @GetMapping("/auth")
     @ResponseBody
-//    @PreAuthorize("hasAuthority('ADMIN')")
+//
     public String auth(){
         return "dazttttttt";
     }
