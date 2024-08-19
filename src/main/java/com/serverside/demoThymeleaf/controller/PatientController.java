@@ -106,7 +106,7 @@ public class PatientController {
 
     @GetMapping("/auth")
     @ResponseBody
-//
+// 
     public String auth(){
         return "dazttttttt";
     }

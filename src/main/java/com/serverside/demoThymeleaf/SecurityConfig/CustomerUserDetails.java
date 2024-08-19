@@ -14,7 +14,7 @@ public class CustomerUserDetails implements UserDetails {
     private List<GrantedAuthority> roles;
 
 
-    public CustomerUserDetails(String username, String password, List<GrantedAuthority> roles) {
+    public  CustomerUserDetails(String username, String password, List<GrantedAuthority> roles) {
         this.username = username;
         this.password = password;
         this.roles = roles;

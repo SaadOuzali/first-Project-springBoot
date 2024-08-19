@@ -49,6 +49,7 @@ public class MySecurityConfig {
         return inMemoryUserDetailsManager;
     }
 
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
@@ -76,6 +77,11 @@ public class MySecurityConfig {
         ;
         return httpSecurity.build();
     }
+
+
+
+
+
 
 
     @Bean

@@ -42,3 +42,5 @@ public class Patient {
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 }
+
+
