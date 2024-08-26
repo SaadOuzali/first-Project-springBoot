@@ -4,6 +4,7 @@ package com.serverside.demoThymeleaf.model.mapper;
 import com.serverside.demoThymeleaf.model.dto.PatientReqDTO;
 import com.serverside.demoThymeleaf.model.dto.UpdateReqDTO;
 import com.serverside.demoThymeleaf.model.dto.V2.PatientReqDTOV2;
+import com.serverside.demoThymeleaf.model.dto.V2.PatientResponseDto;
 import com.serverside.demoThymeleaf.model.entitie.Patient;
 import org.mapstruct.Mapper;
 
@@ -15,5 +16,7 @@ public interface PatientMapper {
     Patient toPatientEntity(UpdateReqDTO updateReqDTO);
 
     Patient toPatientEntity2(PatientReqDTOV2 patientReqDTOV2);
+
+    PatientResponseDto toPatientResponseDto(Patient patient);
 
 }

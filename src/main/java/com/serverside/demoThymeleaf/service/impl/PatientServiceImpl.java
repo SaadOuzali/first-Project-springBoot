@@ -3,6 +3,7 @@ package com.serverside.demoThymeleaf.service.impl;
 import com.serverside.demoThymeleaf.error.PatientError;
 import com.serverside.demoThymeleaf.model.dto.PatientReqDTO;
 import com.serverside.demoThymeleaf.model.dto.UpdateReqDTO;
+import com.serverside.demoThymeleaf.model.dto.V2.PatientResponseDto;
 import com.serverside.demoThymeleaf.model.entitie.Patient;
 import com.serverside.demoThymeleaf.model.mapper.PatientMapper;
 import com.serverside.demoThymeleaf.repository.PatientRepo;
@@ -63,6 +64,14 @@ public class PatientServiceImpl implements PatientService {
             return patient.get();
         }
         throw new PatientError("user not found");
+
+    }
+
+    public PatientResponseDto findById(Long Id){
+      return this.patientRepo.findById(Id).
+               map(this.patientMapper::toPatientResponseDto).
+               orElseThrow(()->new PatientError("lai3tini sa7a"));
+
 
     }
 
